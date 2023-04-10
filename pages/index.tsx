@@ -15,6 +15,7 @@ import { WasmStoreContractForm } from '@/components/WasmStoreContractForm'
 import { BankSendIBCForm } from '@/components/BankSendIBCForm'
 import { B64Form } from '@/components/Base64Form'
 import { IBCInfoForm } from '@/components/IBCInfoForm'
+import { WasmContractInfoForm } from '@/components/WasmContractInfoForm'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -67,6 +68,7 @@ export default function Home() {
                 <button className="button is-link m-3" onClick={() => setContent(<BankSendIBCForm address={wallet?.address}  />)}>MsgSendIBC</button>
                 <button className="button is-link m-3" onClick={() => setContent(<IBCInfoForm />)}>IBCInfo</button>
                 <button className="button is-link m-3" onClick={() => setContent(<WasmCodeInfoForm />)}>WasmCodeInfo</button>
+                <button className="button is-link m-3" onClick={() => setContent(<WasmContractInfoForm />)}>WasmContractInfo</button>
                 <button className="button is-link m-3" onClick={() => setContent(<WasmCodeIdContractsForm />)}>WasmCodeIdContacts</button>
                 <button className="button is-link m-3" onClick={() => setContent(<WasmQueryContractForm />)}>Query Contract</button>
                 <button className="button is-link m-3" onClick={() => setContent(<WasmStoreContractForm />)}>Store Contract</button>

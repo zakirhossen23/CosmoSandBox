@@ -4,12 +4,14 @@ import {
   NEUTRON_DENOM,
   CHAIN_NAME,
   GAS_PRICE,
+  RPC_ENDPOINT,
+  REST_ENDPOINT
 } from './constants';
 import { GasPrice } from '@cosmjs/stargate';
 import { Decimal } from '@cosmjs/math';
 
 export const RPC = () =>  {
-  return `${window ? window?.location?.href  : ''}api/rpc`;
+  return RPC_ENDPOINT;
 };
 
 export const networkSetup = () => {
@@ -18,8 +20,8 @@ export const networkSetup = () => {
     window.keplr.experimentalSuggestChain({
       chainId: CHAIN_ID,
       chainName: CHAIN_NAME,
-      rpc: `${window.location.href}api/rpc`,
-      rest: `${window.location.href}api/rest`,
+      rpc: RPC_ENDPOINT,
+      rest: REST_ENDPOINT,
       bip44: {
         coinType: 118,
       },
@@ -68,7 +70,7 @@ export const keplrSetup = async () => {
     const { name } = await window.keplr.getKey(CHAIN_ID);
 
     const CosmWasmClient = await SigningCosmWasmClient.connectWithSigner(
-      `${window.location.href}api/rpc`,
+      RPC_ENDPOINT,
       offlineSigner,
     );
 
